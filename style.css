@@ -1,0 +1,68 @@
+body{
+    background-color: #e63946;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.timer-content{
+    
+    width: 30%;
+    margin: 0 auto;
+}
+
+.header-title{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+}
+header{ 
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.timer-container{
+    background-color:  rgba(255,255, 255, 0.1);
+    padding: 15px;
+    width: 80%;
+    margin: 20px auto;
+    border-radius: 8px;
+}
+.tab-list{
+    text-align: center;
+}
+.tab-item{
+    display: inline-block;
+    font-size: 15px;
+    color: white;
+    padding: 5px;
+
+}
+.tab-item.active{
+    background-color: black;
+    border-radius: 8px;
+}
+
+.tab-item-content{
+    display: none;
+    text-align: center;
+    /* not use padding cause button is an inline */
+  
+}
+.tab-item-content.active{
+    display: block;
+}
+
+.time{
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-size: 60px;
+    color: white;
+    font-weight: bold;
+}
+
+button{
+    padding: 10px 35px;
+    font-size: 16px;
+    font-weight: bold;
+}
