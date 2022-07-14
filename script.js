@@ -52,6 +52,13 @@ function timer(seconds){
 
     const timerInterval = setInterval(function(){
         const secondsLeft = Math.round((then - Date.now()) / 1000);
+        //display in website
+        displayTime(secondsLeft,pomodoroTime);
+        displayTime(secondsLeft,shortBreakTime);
+        displayTime(secondsLeft,longBreakTime);
+
+
+
         console.log(secondsLeft);
         if(secondsLeft < 1 ){
             clearInterval(timerInterval); //0 vanda kaam second ma najaos vanera
@@ -59,4 +66,40 @@ function timer(seconds){
         }
     },1000);
 };
-timer(5);
+// minute second form ma rakheko
+function displayTime(seconds , element)
+{
+    const minute = Math.floor(seconds/60);
+    const second = seconds %60;
+
+    console.log({minute,second});
+
+    element.innerText = minute + " : " + second;
+}
+const pomodoroTime = document.getElementById("pomodoroTime");
+const shortBreakTime = document.getElementById("shortBreakTime");
+const longBreakTime = document.getElementById("longBreakTime");
+
+// start thichda chalcha
+const pomodoroButton = document.getElementById("pomodoroButton");
+pomodoroButton.addEventListener("click",function()
+{
+    const pomodoroTotalTime = 1500;
+    timer(pomodoroTotalTime);
+});
+
+const shortBreakButton = document.getElementById("shortBreakButton");
+shortBreakButton.addEventListener("click",function()
+{
+    const shortBreakTotalTime = 300;
+    timer(shortBreakTotalTime);
+    
+});
+
+const longBreakButton = document.getElementById("longBreakButton");
+longBreakButton.addEventListener("click",function()
+{
+    const longBreakTotalTime = 900;
+    timer(longBreakTotalTime);
+});
+
