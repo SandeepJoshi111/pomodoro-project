@@ -63,6 +63,7 @@ longBreakTab.addEventListener("click",function(){
 // Timer to develop
 function timer(seconds){
     const now = Date.now();
+
     const then = now + (seconds *1000);
 
 
@@ -74,6 +75,8 @@ function timer(seconds){
         displayTime(secondsLeft,shortBreakTime);
         displayTime(secondsLeft,longBreakTime);
 
+       
+
 
 
         console.log(secondsLeft);
@@ -84,27 +87,39 @@ function timer(seconds){
         
     },1000);
 
+    //pause funtion
     pomodoroStop.addEventListener("click",function(){
         clearInterval(timerInterval);
-   
+        pomodoroButton.style.visibility='visible';
+
+        pomodoroStop.parentNode.replaceChild(pomodoroButton,pomodoroStop);
+
+
     });
     shortBreakStop.addEventListener("click",function(){
         clearInterval(timerInterval);
+        shortBreakButton.style.visibility='visible';
+
+        shortBreakStop.parentNode.replaceChild(shortBreakButton,shortBreakStop);
 
  
     
     });
     longBreakStop.addEventListener("click",function(){
         clearInterval(timerInterval);
+        longBreakButton.style.visibility='visible';
+        longBreakStop.parentNode.replaceChild(longBreakButton,longBreakStop);
+        
 
-       
-    
+  
+      
     });
 
-
+    //reset funtion
     pomodoroReset.addEventListener("click",function(){
         clearInterval(timerInterval);
-        pomodoroStop.parentNode.replaceChild(pomodoroButton,pomodoroStop);
+        pomodoroReset.parentNode.replaceChild(pomodoroButton,pomodoroReset);
+        
         minute = "25";
         second ="00";
         pomodoroTime.innerHTML = minute + " : " + second;
@@ -112,14 +127,21 @@ function timer(seconds){
         pomodoroStop.style.visibility='hidden';
         pomodoroReset.style.visibility='hidden';
 
-        
 
-        
+        const shortMin = "5";
+        const shortSec = "00"
+        shortBreakTime.innerHTML = shortMin + " : " + shortSec;
+
+        const longMin ="15";
+        const longSec ="00";
+        longBreakTime.innerHTML = longMin + " : " + longSec;
+
+
     });
     shortBreakReset.addEventListener("click",function(){
         clearInterval(timerInterval);
 
-        shortBreakStop.parentNode.replaceChild(shortBreakButton,shortBreakStop);
+        shortBreakReset.parentNode.replaceChild(shortBreakButton,shortBreakReset);
         minute = "5";
         second ="00";
         shortBreakTime.innerHTML = minute + " : " + second;
@@ -127,30 +149,52 @@ function timer(seconds){
         shortBreakButton.style.visibility='visible';
         shortBreakStop.style.visibility='hidden';
         shortBreakReset.style.visibility='hidden';
+
+
+        const pomoMin = "25";
+        const pomoSec = "00"
+        pomodoroTime.innerHTML = pomoMin + " : " + pomoSec;
+
+        const longMin ="15";
+        const longSec ="00";
+        longBreakTime.innerHTML = longMin + " : " + longSec;
+
+    
     });
 
     longBreakReset.addEventListener("click",function(){
         clearInterval(timerInterval);
 
-        longBreakStop.parentNode.replaceChild(longBreakButton,longBreakStop);
+        longBreakReset.parentNode.replaceChild(longBreakButton,longBreakReset);
 
         minute = "15";
         second ="00";
+
         longBreakTime.innerHTML = minute + " : " + second;
 
         longBreakButton.style.visibility='visible';
         longBreakStop.style.visibility='hidden';
         longBreakReset.style.visibility='hidden';
 
+        const pomoMin = "25";
+        const pomoSec = "00"
+        pomodoroTime.innerHTML = pomoMin + " : " + pomoSec;
+
+        const shortMin = "5";
+        const shortSec = "00"
+        shortBreakTime.innerHTML = shortMin + " : " + shortSec;
+
         
 
         
     });
+  
+
 };
 
 
 
-// minute second form ma rakheko
+// putting in minute and second form
 function displayTime(seconds , element)
 {
     const minute = Math.floor(seconds/60);
@@ -169,7 +213,7 @@ function displayTime(seconds , element)
 
 
 
-// start thichda chalcha
+// will run when pressed start
 const pomodoroButton = document.getElementById("pomodoroButton");
 pomodoroButton.addEventListener("click",function()
 {
@@ -177,21 +221,21 @@ pomodoroButton.addEventListener("click",function()
     timer(pomodoroTotalTime);
 
     pomodoroReset.style.display='block';
-    pomodoroButton.parentNode.replaceChild(pomodoroStop,pomodoroButton);
-    
+    pomodoroButton.parentNode.replaceChild(pomodoroReset,pomodoroButton);
 
-
+    //once start is presssed then pause and reset buttton comes
     pomodoroButton.style.visibility = 'hidden';
     if( pomodoroButton.style.visibility === 'hidden')
     {
-        pomodoroStop.style.visibility='visible';
+       // pomodoroStop.style.visibility='visible';
         pomodoroReset.style.visibility='visible';
     }
     else
     {
-        pomodoroStop.style.visibility='hidden';
+        //pomodoroStop.style.visibility='hidden';
         pomodoroReset.style.visibility='hidden';
     }  
+
 
     
 });
@@ -199,48 +243,60 @@ pomodoroButton.addEventListener("click",function()
 const shortBreakButton = document.getElementById("shortBreakButton");
 shortBreakButton.addEventListener("click",function()
 {
+  
+
     const shortBreakTotalTime = 300;
     timer(shortBreakTotalTime);
-    
+
     shortBreakReset.style.display='block';
-    shortBreakButton.parentNode.replaceChild(shortBreakStop,shortBreakButton);
+    shortBreakButton.parentNode.replaceChild(shortBreakReset,shortBreakButton);
     
-
-
     shortBreakButton.style.visibility = 'hidden';
     if( shortBreakButton.style.visibility === 'hidden')
     {
-        shortBreakStop.style.visibility='visible';
+       // shortBreakStop.style.visibility='visible';
         shortBreakReset.style.visibility='visible';
     }
     else
     {
-        shortBreakStop.style.visibility='hidden';
+       // shortBreakStop.style.visibility='hidden';
         shortBreakReset.style.visibility='hidden';
     }  
+
+        
+
+  
     
 });
 
 const longBreakButton = document.getElementById("longBreakButton");
 longBreakButton.addEventListener("click",function()
 {
+    
+
     const longBreakTotalTime = 900;
     timer(longBreakTotalTime);
 
     longBreakReset.style.display='block';
-    longBreakButton.parentNode.replaceChild(longBreakStop,longBreakButton);
-
+    longBreakButton.parentNode.replaceChild(longBreakReset,longBreakButton);
+    
     longBreakButton.style.visibility = 'hidden';
+
     if( longBreakButton.style.visibility === 'hidden')
     {
-        longBreakStop.style.visibility='visible';
+       // longBreakStop.style.visibility='visible';
         longBreakReset.style.visibility='visible';
     }
     else
     {
-        longBreakStop.style.visibility='hidden';
+        //longBreakStop.style.visibility='hidden';
         longBreakReset.style.visibility='hidden';
     }  
+
+    
+       
+
+   
     
 });
 
@@ -259,13 +315,9 @@ const pomodoroReset = document.getElementById("pomodoroReset");
 const shortBreakReset = document.getElementById("shortBreakReset");
 const longBreakReset = document.getElementById("longBreakReset");
 
-const pomodoroResume = document.getElementById("pomodoroResume");
-const shortBreakResume = document.getElementById("shortBreakResume");
-const longBreakResume = document.getElementById("longBreakResume");
-
-pomodoroStop.style.visibility='hidden';
-shortBreakStop.style.visibility='hidden';
-longBreakStop.style.visibility='hidden';
+pomodoroStop.style.display='none';
+shortBreakStop.style.display='none';
+longBreakStop.style.display='none';
 
 pomodoroReset.style.display='none';
 shortBreakReset.style.display='none';
@@ -273,6 +325,4 @@ longBreakReset.style.display='none';
 
 
 
-
-//creating a reset function
 
