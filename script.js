@@ -87,33 +87,30 @@ function timer(seconds){
         
     },1000);
 
-    //pause funtion
-    pomodoroStop.addEventListener("click",function(){
-        clearInterval(timerInterval);
-        pomodoroButton.style.visibility='visible';
+    // pause funtion
+    // pomodoroStop.addEventListener("click",function(){
+    //     clearInterval(timerInterval);
+    //     pomodoroButton.style.visibility='visible';
 
-        pomodoroStop.parentNode.replaceChild(pomodoroButton,pomodoroStop);
+    //     pomodoroStop.parentNode.replaceChild(pomodoroButton,pomodoroStop);
 
 
-    });
-    shortBreakStop.addEventListener("click",function(){
-        clearInterval(timerInterval);
-        shortBreakButton.style.visibility='visible';
+    // });
+    // shortBreakStop.addEventListener("click",function(){
+    //     clearInterval(timerInterval);
+    //     shortBreakButton.style.visibility='visible';
 
-        shortBreakStop.parentNode.replaceChild(shortBreakButton,shortBreakStop);
+    //     shortBreakStop.parentNode.replaceChild(shortBreakButton,shortBreakStop);
 
  
     
-    });
-    longBreakStop.addEventListener("click",function(){
-        clearInterval(timerInterval);
-        longBreakButton.style.visibility='visible';
-        longBreakStop.parentNode.replaceChild(longBreakButton,longBreakStop);
-        
-
-  
+    // });
+    // longBreakStop.addEventListener("click",function(){
+    //     clearInterval(timerInterval);
+    //     longBreakButton.style.visibility='visible';
+    //     longBreakStop.parentNode.replaceChild(longBreakButton,longBreakStop);
       
-    });
+    // });
 
     //reset funtion
     pomodoroReset.addEventListener("click",function(){
