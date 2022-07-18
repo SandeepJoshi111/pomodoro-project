@@ -27,19 +27,20 @@ header{
     width: 80%;
     margin: 20px auto;
     border-radius: 8px;
+    position: static;
 }
 .tab-list{
     text-align: center;
 }
 .tab-item{
     display: inline-block;
-    font-size: 15px;
+    font-size: 25px;
     color: white;
     padding: 5px;
 
 }
 .tab-item.active{
-    background-color: black;
+    background-color: rgba(0,0, 0, 0.6);
     border-radius: 8px;
 }
 
@@ -56,13 +57,35 @@ header{
 .time{
     padding-top: 25px;
     padding-bottom: 25px;
-    font-size: 60px;
+    font-size: 100px;
     color: white;
     font-weight: bold;
 }
 
 button{
     padding: 10px 35px;
-    font-size: 16px;
+    font-size: 25px;
     font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    border-radius: 8px;
+    background-color: rgba(255,255, 255, 0.1);
+    color: white;
+    border: none;
+
+}
+
+button.start{
+    font-size: 25px;
+}
+
+
+
+button:hover{
+    cursor: pointer;
+    background-color: rgba(0,0, 0, 0.6);
+    color: white;
+    transition: 0.4s;
+    border: none;
 }
